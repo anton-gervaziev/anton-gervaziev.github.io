@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anton Gervaziev — .NET Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-identity">
+    <a class="sb-name" href="index.html">AG / .NET</a>
+    <div class="sb-role">.NET Developer · Sofia</div>
+  </div>
+
+  <div class="sb-label">Navigation</div>
+  <div class="sb-nav">
+    <a href="#top" class="active" data-section="top">Home</a>
+    <a href="#projects" data-section="projects">Projects</a>
+    <a class="sb-sub" href="deepwrk.html">Deepwrk</a>
+    <a class="sb-sub" href="newspaper.html">Newspaper ERP</a>
+    <a href="#experience" data-section="experience">Experience</a>
+    <a href="#skills" data-section="skills">Stack</a>
+  </div>
+
+  <div class="sb-contact">
+    <div class="location">Sofia, Bulgaria</div>
+    <a href="mailto:anton.gervaziev@gmail.com">anton.gervaziev@gmail.com</a>
+    <a href="https://linkedin.com/in/antongervaziev-6888199a" target="_blank">LinkedIn</a>
+    <div class="languages">EN (fluent) · BG (native) · DE (basic)</div>
+    <a class="cv-btn" href="Anton_Gervaziev_CV.pdf" download>Download CV →</a>
+  </div>
+</aside>
+
+<header class="mobile-header">
+  <div class="mh-inner">
+    <a class="mh-name" href="index.html">AG / .NET</a>
+    <button class="mh-menu" onclick="document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open');">Menu</button>
+  </div>
+</header>
+<div class="sidebar-overlay" id="overlay" onclick="document.getElementById('sidebar').classList.remove('open');this.classList.remove('open');"></div>
+
+<div class="main">
+
+  <div class="hero" id="top">
+    <div class="hero-bg">ERP</div>
+    <div class="hero-tag">Available for remote contract · Sofia, Bulgaria</div>
+    <div class="page-h1">Anton<br><em>Gerva</em>ziev</div>
+    <div class="hero-cta">
+      <button class="btn btn-y" onclick="copyEmail()">Contact Now ↗</button>
+    </div>
+    <div class="hero-bottom">
+      <p class="hero-desc">.NET developer. Six years building production ERP and SaaS systems where the complexity is in the domain, not the stack. Two production systems built from scratch, both still running.</p>
+      <div class="stats">
+        <div class="stat"><div class="stat-n">6+</div><div class="stat-l">Years in production</div></div>
+        <div class="stat"><div class="stat-n">200+</div><div class="stat-l">SaaS subscribers</div></div>
+        <div class="stat"><div class="stat-n">2</div><div class="stat-l">Systems from zero</div></div>
+        <div class="stat"><div class="stat-n">3yr</div><div class="stat-l">Live SaaS runtime</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="sec-head"><div class="sec-n">01 / PROJECTS</div><div class="sec-t">Shipped<br>& still<br>running.</div></div>
+    <div class="proj-index">
+      <a class="proj-row" href="deepwrk.html">
+        <div class="proj-num">01</div>
+        <div class="proj-info">
+          <div class="proj-name">Deepwrk</div>
+          <div class="proj-tagline">Focus & productivity SaaS · Bubble.io → ASP.NET MVC · 200+ subscribers · 3 years live</div>
+          <div class="proj-meta"><span class="tag live">● Live</span><span class="tag">SaaS</span><span class="tag">ASP.NET MVC</span><span class="tag">C#</span><span class="tag">EF</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </a>
+      <a class="proj-row" href="newspaper.html">
+        <div class="proj-num">02</div>
+        <div class="proj-info">
+          <div class="proj-name">Newspaper Distribution ERP</div>
+          <div class="proj-tagline">Legacy modernization · DOS 1998 → ASP.NET · 30-year-old business · 6 locations</div>
+          <div class="proj-meta"><span class="tag live">● Live</span><span class="tag">ERP</span><span class="tag">ASP.NET</span><span class="tag">C#</span><span class="tag">EF</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><div class="sec-n">02 / EXPERIENCE</div><div class="sec-t">Day<br>Job.</div></div>
+    <div class="exp-row">
+      <div class="exp-date">AUG 2019<br>PRESENT</div>
+      <div>
+        <div class="exp-co">FIO</div>
+        <div class="exp-role">.NET Developer — German PropTech ERP</div>
+        <ul class="bullets">
+          <li>ERP platform for German property rentals — subletting management. Modular monolith, .NET, multi-tenant.</li>
+          <li>Own the <strong>budgeting</strong> and <strong>pre-invoicing</strong> modules. I design the features, write the code, fix the bugs, keep it running.</li>
+          <li>Built <strong>multi-commission release</strong> — different commission types each have their own release rules and edge cases.</li>
+          <li><strong>Performance work</strong> — slow queries, EF profiling, invoicing runs that were taking too long.</li>
+          <li>Figured out how modules talk to each other without turning the monolith into a mess.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><div class="sec-n">03 / STACK</div><div class="sec-t">Tools<br>of the<br>trade.</div></div>
+    <div class="skill-g">
+      <div class="skill-b"><div class="skill-bl">Primary</div><div class="skill-li"><span class="sk p">C#</span><span class="sk p">.NET / ASP.NET</span><span class="sk p">ASP.NET MVC</span><span class="sk p">Entity Framework</span><span class="sk p">SQL Server</span><span class="sk p">PostgreSQL</span></div></div>
+      <div class="skill-b"><div class="skill-bl">Secondary</div><div class="skill-li"><span class="sk">SignalR</span><span class="sk">REST APIs</span><span class="sk">Modular Monolith</span><span class="sk">Performance Optimization</span><span class="sk">ERP Architecture</span><span class="sk">Multi-tenant</span></div></div>
+      <div class="skill-b"><div class="skill-bl">Domain</div><div class="skill-li"><span class="sk">PropTech / ERP</span><span class="sk">SaaS Platforms</span><span class="sk">Financial Software</span><span class="sk">Legacy Modernization</span><span class="sk">No-code Migration</span><span class="sk">Operations Systems</span></div></div>
+    </div>
+  </section>
+
+  <footer><div class="ft-name">AG.</div><div class="ft-links"><a href="mailto:anton.gervaziev@gmail.com">anton.gervaziev@gmail.com</a><a href="https://linkedin.com/in/antongervaziev-6888199a" target="_blank">LinkedIn</a></div></footer>
+
+</div>
+
+<div class="copy-toast" id="copyToast">Email copied to clipboard</div>
+
+<script>
+function copyEmail(){
+  navigator.clipboard.writeText('anton.gervaziev@gmail.com').then(()=>{
+    const t=document.getElementById('copyToast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2000);
+  });
+}
+
+// Scroll-tracking for sidebar nav
+window.addEventListener('scroll',()=>{
+  const sections=document.querySelectorAll('section[id], .hero[id]');
+  let current='';
+  sections.forEach(s=>{
+    const rect=s.getBoundingClientRect();
+    if(rect.top<=150) current=s.getAttribute('id');
+  });
+  document.querySelectorAll('.sb-nav a[href^="#"]').forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

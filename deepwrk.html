@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepwrk — Anton Gervaziev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-identity">
+    <a class="sb-name" href="index.html">AG / .NET</a>
+    <div class="sb-role">.NET Developer · Sofia</div>
+  </div>
+
+  <div class="sb-label">Navigation</div>
+  <div class="sb-nav">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a class="sb-sub active" href="deepwrk.html">Deepwrk</a>
+    <a class="sb-sub" href="newspaper.html">Newspaper ERP</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#skills">Stack</a>
+  </div>
+
+  <div class="sb-contact">
+    <div class="location">Sofia, Bulgaria</div>
+    <a href="mailto:anton.gervaziev@gmail.com">anton.gervaziev@gmail.com</a>
+    <a href="https://linkedin.com/in/antongervaziev-6888199a" target="_blank">LinkedIn</a>
+    <div class="languages">EN (fluent) · BG (native) · DE (basic)</div>
+    <a class="cv-btn" href="Anton_Gervaziev_CV.pdf" download>Download CV →</a>
+  </div>
+</aside>
+
+<header class="mobile-header">
+  <div class="mh-inner">
+    <a class="mh-name" href="index.html">AG / .NET</a>
+    <button class="mh-menu" onclick="document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open');">Menu</button>
+  </div>
+</header>
+<div class="sidebar-overlay" id="overlay" onclick="document.getElementById('sidebar').classList.remove('open');this.classList.remove('open');"></div>
+
+<div class="main">
+
+  <div class="proj-hero" id="dw-overview">
+    <div class="bg-text">DW</div>
+    <div class="breadcrumb"><a href="index.html">Portfolio</a> / Deepwrk</div>
+    <div class="title">Deep<em>Wrk</em></div>
+    <div class="sub">Focus & productivity SaaS · full rewrite from Bubble.io to ASP.NET MVC</div>
+    <p class="desc">A platform for remote workers who want structured focus time — live sessions, task tracking, ambient features, and a chat layer. Built from scratch after the original Bubble.io version hit a hard performance and maintainability ceiling.</p>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value live">Live in production</div></div>
+      <div class="meta-item"><div class="meta-label">Users</div><div class="meta-value">200+</div></div>
+      <div class="meta-item"><div class="meta-label">Uptime</div><div class="meta-value">3yr</div></div>
+      <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value" style="font-size:20px;">Solo</div></div>
+    </div>
+    <a class="visit-btn" href="https://deepwrk2.onrender.com" target="_blank" rel="noopener">Visit live site ↗</a>
+  </div>
+
+  <nav class="proj-nav">
+    <a class="back-link" href="index.html">← Portfolio</a>
+    <a href="#dw-preview">Preview</a>
+    <a href="#dw-why">Why Rebuilt</a>
+    <a href="#dw-performance">Performance</a>
+    <a href="#dw-built">What I Built</a>
+    <a href="#dw-challenges">Challenges</a>
+    <a href="#dw-architecture">Architecture</a>
+    <a href="#dw-screens">Screenshots</a>
+    <a href="#dw-stack">Stack</a>
+  </nav>
+
+  <div class="pd-section" id="dw-preview">
+    <div class="pd-label">Live Preview</div>
+    <div class="preview-box">
+      <div class="preview-box-inner"><iframe src="https://deepwrk2.onrender.com" loading="lazy" title="Deepwrk" sandbox="allow-scripts allow-same-origin"></iframe></div>
+      <div class="preview-box-bar"><div class="preview-dots"><div class="preview-dot" style="background:#ff5f57;"></div><div class="preview-dot" style="background:#ffbd2e;"></div><div class="preview-dot" style="background:#28c840;"></div></div><div class="preview-url">deepwrk2.onrender.com</div><a href="https://deepwrk2.onrender.com" target="_blank" class="preview-link">Open ↗</a></div>
+    </div>
+  </div>
+
+  <div class="pd-section" id="dw-why">
+    <div class="pd-label">Why It Was Rebuilt</div>
+    <div class="pd-text">
+      <p>The original Bubble.io implementation made early development fast, but by the time the platform had real users, two problems were getting worse.</p>
+      <p><strong>Performance:</strong> Bubble's runtime adds abstraction on top of every database call. Page loads were hitting 3–8 seconds. Real-time features — live session counts, chat — had 2–4 second delays. For a product whose entire value proposition is getting into flow state, that's fatal.</p>
+      <p><strong>Maintainability:</strong> Every new feature required working around Bubble's constraints. What should have been a two-hour feature took two days. The codebase was a maze of workarounds with no exit.</p>
+    </div>
+  </div>
+
+  <div class="pd-section" id="dw-performance">
+    <div class="pd-label">Performance: Bubble vs ASP.NET MVC</div>
+    <table class="perf-t">
+      <thead><tr><th>Metric</th><th>Bubble.io (before)</th><th>ASP.NET MVC (after)</th></tr></thead>
+      <tbody>
+        <tr><td>Initial page load</td><td class="bad">3 – 8s</td><td class="good">&lt; 1s</td></tr>
+        <tr><td>Live session count update</td><td class="bad">2 – 4s delay</td><td class="good">Real-time</td></tr>
+        <tr><td>Chat message delivery</td><td class="bad">1 – 3s</td><td class="good">&lt; 100ms</td></tr>
+        <tr><td>Auth flow</td><td class="bad">4 – 6s</td><td class="good">&lt; 500ms</td></tr>
+        <tr><td>New feature iteration</td><td class="bad">Days (workarounds)</td><td class="good">Hours (direct)</td></tr>
+        <tr><td>Hosting cost at scale</td><td class="bad">High (Bubble plan)</td><td class="good">Low (own infra)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pd-section" id="dw-built">
+    <div class="pd-label">What I Built</div>
+    <div class="tech-grid">
+      <div class="tg-item"><div class="tg-label">Data model</div><div class="tg-val">New relational schema from scratch. Figured out how Bubble was storing everything and mapped it to proper SQL tables.</div></div>
+      <div class="tg-item"><div class="tg-label">Authentication</div><div class="tg-val">Google, Apple, email+code, password, magic link. Sessions, tokens, the whole thing.</div></div>
+      <div class="tg-item"><div class="tg-label">Real-time features</div><div class="tg-val">Focus sessions, live counters, chat. Persistent connections, sub-100ms.</div></div>
+      <div class="tg-item"><div class="tg-label">Data migration</div><div class="tg-val">Got the data out of Bubble, wrote scripts to transform it, loaded it into the new schema. Zero data loss.</div></div>
+      <div class="tg-item"><div class="tg-label">Billing</div><div class="tg-val">Free trial, plans, payments. 200+ paying subscribers.</div></div>
+      <div class="tg-item"><div class="tg-label">Deployment</div><div class="tg-val">Docker, deployed on Render. I'm the only one who touches it.</div></div>
+    </div>
+  </div>
+
+  <div class="pd-section" id="dw-challenges">
+    <div class="pd-label">Technical Challenges</div>
+    <div class="challenge-grid">
+      <div class="challenge-card"><div class="num">01</div><h4>Data Migration from Bubble</h4><p>Bubble stores data in its own format — no SQL export. I wrote scripts to pull everything out, reshape it, and load it into the new schema. Nothing lost.</p></div>
+      <div class="challenge-card"><div class="num">02</div><h4>Zero-Downtime Cutover</h4><p>200+ paying subscribers on the old system. Ran both in parallel, checked the data matched, then switched over. Nobody lost anything.</p></div>
+      <div class="challenge-card"><div class="num">03</div><h4>Reproducing Implicit Logic</h4><p>Bubble's visual workflows encode logic that's hard to read and impossible to export. Reverse-engineered behavior by testing the running app, re-implemented in C#.</p></div>
+      <div class="challenge-card"><div class="num">04</div><h4>Auth Rebuild</h4><p>Bubble's auth is a black box. Replaced it with ASP.NET Identity — migrated all existing accounts, handled credential resets, added role-based access.</p></div>
+    </div>
+  </div>
+
+  <div class="pd-section" id="dw-architecture">
+    <div class="pd-label">Architecture</div>
+    <div class="arch-box">
+      <div class="arch-layer"><div class="arch-label">Presentation</div><div class="arch-blocks"><div class="arch-block p">ASP.NET MVC</div><div class="arch-block s">Razor Views</div><div class="arch-block s">CSS / JS</div></div></div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer"><div class="arch-label">Application</div><div class="arch-blocks"><div class="arch-block p">Controllers</div><div class="arch-block p">Services</div><div class="arch-block s">Identity Auth</div></div></div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer"><div class="arch-label">Domain</div><div class="arch-blocks"><div class="arch-block p">Business Logic</div><div class="arch-block p">Workflows</div><div class="arch-block s">Validation</div></div></div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer"><div class="arch-label">Data</div><div class="arch-blocks"><div class="arch-block d">Entity Framework</div><div class="arch-block d">SQL Database</div><div class="arch-block s">Migrations</div></div></div>
+    </div>
+    <div class="pd-text" style="margin-top:16px;"><p>Nothing fancy — controllers, services, data access, each in its own lane. The hard parts are in the business logic and the data model, not the architecture.</p></div>
+  </div>
+
+  <div class="pd-section" id="dw-screens">
+    <div class="pd-label">Screenshots</div>
+    <div class="gallery">
+      <div class="gal-item"><div class="gal-ph">Dashboard<br>add screenshot</div></div>
+      <div class="gal-item"><div class="gal-ph">Focus session<br>add screenshot</div></div>
+      <div class="gal-item"><div class="gal-ph">Timer view<br>add screenshot</div></div>
+      <div class="gal-item"><div class="gal-ph">Task tracking<br>add screenshot</div></div>
+      <div class="gal-item"><div class="gal-ph">Chat<br>add screenshot</div></div>
+      <div class="gal-item"><div class="gal-ph">Pricing / plans<br>add screenshot</div></div>
+    </div>
+    <p style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:8px;">→ Replace gal-ph divs with &lt;img&gt; tags to add screenshots</p>
+  </div>
+
+  <div class="pd-section" id="dw-stack">
+    <div class="pd-label">Technology Stack</div>
+    <div class="stack-table">
+      <span class="sk-label">Runtime</span><span class="sk-val">.NET / ASP.NET MVC</span>
+      <span class="sk-label">Language</span><span class="sk-val">C#</span>
+      <span class="sk-label">ORM</span><span class="sk-val">Entity Framework (Code First)</span>
+      <span class="sk-label">Database</span><span class="sk-val">SQL Server</span>
+      <span class="sk-label">Auth</span><span class="sk-val">ASP.NET Identity</span>
+      <span class="sk-label">Hosting</span><span class="sk-val">Render (containerized)</span>
+      <span class="sk-label">Previous</span><span class="sk-val">Bubble.io (no-code)</span>
+    </div>
+  </div>
+
+  <a class="next-project" href="newspaper.html"><div><div class="next-label">Next Project</div><h3>Newspaper Distribution ERP →</h3></div><span class="arrow">→</span></a>
+  <div class="detail-footer">© 2026 Anton Gervaziev</div>
+
+</div>
+
+<script>
+// Scroll-tracking for inline project nav
+window.addEventListener('scroll',()=>{
+  const sections=document.querySelectorAll('.proj-hero[id], .pd-section[id]');
+  let current='';
+  sections.forEach(s=>{
+    const rect=s.getBoundingClientRect();
+    if(rect.top<=150) current=s.getAttribute('id');
+  });
+  document.querySelectorAll('.proj-nav a[href^="#"]').forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
