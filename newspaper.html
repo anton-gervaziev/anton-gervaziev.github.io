@@ -4,14 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Newspaper Distribution ERP — Anton Gervaziev</title>
+<meta name="description" content="Custom ERP replacing a 1998 DOS system. ASP.NET Core MVC + PostgreSQL. Reduced daily operations from 30 minutes to 2 minutes.">
+<meta property="og:title" content="Newspaper Distribution ERP — Anton Gervaziev">
+<meta property="og:description" content="Custom ERP replacing a 1998 DOS system for a 30-year newspaper distribution company. ASP.NET Core MVC, PostgreSQL, Raspberry Pi print server.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
+<script>if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light';</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
-<aside class="sidebar" id="sidebar">
+<nav class="sidebar" id="sidebar" aria-label="Main navigation">
+  <button class="sb-close" aria-label="Close menu">&times;</button>
   <div class="sb-identity">
     <a class="sb-name" href="index.html">AG / .NET</a>
     <div class="sb-role">.NET Developer · Sofia</div>
@@ -30,33 +38,36 @@
   <div class="sb-contact">
     <div class="location">Sofia, Bulgaria</div>
     <a href="mailto:anton.gervaziev@gmail.com">anton.gervaziev@gmail.com</a>
-    <a href="https://linkedin.com/in/antongervaziev-6888199a" target="_blank">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/anton-gervaziev-6888199a/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
     <div class="languages">EN (fluent) · BG (native) · DE (basic)</div>
+    <div class="source-note">Source available on request</div>
     <a class="cv-btn" href="Anton_Gervaziev_CV.pdf" download>Download CV →</a>
+    <button class="theme-toggle sb-theme" aria-label="Switch to light mode">Light</button>
   </div>
-</aside>
+</nav>
 
 <header class="mobile-header">
   <div class="mh-inner">
     <a class="mh-name" href="index.html">AG / .NET</a>
-    <button class="mh-menu" onclick="document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open');">Menu</button>
+    <button class="theme-toggle mh-theme" aria-label="Switch to light mode">Light</button>
+    <button class="mh-menu">Menu</button>
   </div>
 </header>
-<div class="sidebar-overlay" id="overlay" onclick="document.getElementById('sidebar').classList.remove('open');this.classList.remove('open');"></div>
+<div class="sidebar-overlay" id="overlay"></div>
 
-<div class="main">
+<main class="main" id="main-content">
 
   <div class="proj-hero" id="np-overview">
-    <div class="bg-text">ERP</div>
+    <div class="bg-text" aria-hidden="true">ERP</div>
     <div class="breadcrumb"><a href="index.html">Portfolio</a> / Newspaper ERP</div>
-    <div class="title">News<em>ERP</em></div>
-    <div class="sub">DOS 1998 → ASP.NET · 30-year-old distribution business · 6 locations</div>
-    <p class="desc">A newspaper distribution company with 6 locations was running on a DOS app from 1998. No documentation, no backup. If that one machine died, the business stopped. I reverse-engineered how it worked and rebuilt the whole thing.</p>
+    <h1 class="title">News<em>ERP</em></h1>
+    <div class="sub">DOS 1998 → .NET 9 + PostgreSQL · 30-year newspaper distribution company · 6 locations</div>
+    <p class="desc">A 30-year-old newspaper distribution company with 6 locations. The sole operator had been using a DOS application from 1998 on a Windows 98 machine — no documentation, no backup, no recovery plan. When the hardware started failing, the entire system needed to be rebuilt from scratch before the machine died for good.</p>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value live">Live in daily use</div></div>
       <div class="meta-item"><div class="meta-label">Business</div><div class="meta-value">30yr</div></div>
       <div class="meta-item"><div class="meta-label">Scale</div><div class="meta-value">6</div></div>
-      <div class="meta-item"><div class="meta-label">Billing Saved</div><div class="meta-value">~70%</div></div>
+      <div class="meta-item"><div class="meta-label">Daily</div><div class="meta-value meta-value-sm">30min → 2min</div></div>
     </div>
   </div>
 
@@ -67,22 +78,21 @@
     <a href="#np-quotes">Client Feedback</a>
     <a href="#np-process">Process</a>
     <a href="#np-challenges">Challenges</a>
-    <a href="#np-screens">Screenshots</a>
     <a href="#np-stack">Stack</a>
   </nav>
 
-  <div class="pd-section" id="np-story">
-    <div class="pd-label">The Situation</div>
+  <section class="pd-section" id="np-story">
+    <h2 class="pd-label">The Situation</h2>
     <div class="pd-text">
-      <p>A 30-year-old family newspaper distribution business. One power user managing the entire operation: subscriber routes, daily deliveries, billing across 6 physical distribution points.</p>
-      <p>Every morning she opened a DOS application from 1998. The machine it ran on was the only one that could run it. <strong>No documentation, no source code, no backup, no recovery plan.</strong> One hardware failure and the business stops completely.</p>
-      <p>On top of the hardware risk — no reporting, no remote access, no way to connect it to anything. Running a business in 2020 on 1998 software.</p>
+      <p>A 30-year-old newspaper distribution company. The sole operator managing the entire operation: subscriber routes, daily deliveries, billing across 6 physical distribution points.</p>
+      <p>Every morning the operator opened a DOS application from 1998. The Windows 98 machine it ran on was the only one that could run it. <strong>No documentation, no source code, no backup, no recovery plan.</strong> One hardware failure and the business stops completely.</p>
+      <p>On top of the hardware risk — no reporting, no remote access, no way to connect it to anything. The hardware was already failing. The system needed a full rebuild before the hardware failed completely.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="pd-section" id="np-built">
-    <div class="pd-label">What I Built</div>
-    <div class="pd-text" style="margin-bottom:14px;"><p>No codebase, no documentation, no schema. I sat with the owner and watched how she used the DOS system every day — what she clicked, what she remembered, what the software didn't actually handle. Then I turned all of that into a data model and started building.</p></div>
+  <section class="pd-section" id="np-built">
+    <h2 class="pd-label">What I Built</h2>
+    <div class="pd-text mb"><p>No codebase, no documentation, no schema. I sat with the operator and watched how the DOS system was used every day — what was clicked, what was remembered from habit, what the software didn't actually handle. Then I turned all of that into a data model and started building.</p></div>
     <div class="tech-grid">
       <div class="tg-item"><div class="tg-label">Route management</div><div class="tg-val">Subscriber assignments, daily route generation, change tracking across 6 locations.</div></div>
       <div class="tg-item"><div class="tg-label">Subscriber tracking</div><div class="tg-val">Sign-up, edition preferences, pauses, cancellations, reactivation. The whole cycle.</div></div>
@@ -90,81 +100,59 @@
       <div class="tg-item"><div class="tg-label">Multi-location</div><div class="tg-val">6 distribution points, each with their own routes and stock. One place to see all of it.</div></div>
       <div class="tg-item"><div class="tg-label">Data migration</div><div class="tg-val">Got subscriber and route data out of the DOS exports and into the new system by hand.</div></div>
       <div class="tg-item"><div class="tg-label">UI design</div><div class="tg-val">Designed around how the operator actually works — not how software usually works.</div></div>
+      <div class="tg-item"><div class="tg-label">Print server</div><div class="tg-val">Raspberry Pi running a print server via Tailscale — accessible from phone and laptop, anywhere. Running for 6+ months.</div></div>
     </div>
-  </div>
+  </section>
 
-  <div class="pd-section" id="np-quotes">
-    <div class="pd-label">Client Feedback</div>
+  <section class="pd-section" id="np-quotes">
+    <h2 class="pd-label">Client Feedback</h2>
     <div class="quote"><p class="quote-t">"Finally I can see everything in one place. Before I had to remember which papers go where — now the system just tells me. It saves me at least an hour every morning."</p><div class="quote-a"><span>Business owner</span> · 30-year newspaper distribution operation</div></div>
     <div class="quote"><p class="quote-t">"The old program was always breaking. Now I don't have to worry. If something happens to the computer I know the data is safe."</p><div class="quote-a"><span>Business owner</span> · On reliability vs the DOS system</div></div>
     <div class="quote"><p class="quote-t">"Billing used to take me half a day at the end of the month. Now it takes maybe 20 minutes."</p><div class="quote-a"><span>Business owner</span> · On the billing module</div></div>
-    <p style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:10px;">Quotes paraphrased from conversations with the client. Shared with permission.</p>
-  </div>
+  </section>
 
-  <div class="pd-section" id="np-process">
-    <div class="pd-label">Development Process</div>
+  <section class="pd-section" id="np-process">
+    <h2 class="pd-label">Development Process</h2>
     <div class="timeline">
-      <div class="tl-step"><div class="tl-phase">Phase 1</div><h4>Discovery & Reverse Engineering</h4><p>Spent days watching the owner use the DOS system. A lot of the business rules weren't in the software — they were in her head.</p></div>
+      <div class="tl-step"><div class="tl-phase">Phase 1</div><h4>Discovery & Reverse Engineering</h4><p>Spent days watching the owner use the DOS system. A lot of the business rules weren't in the software — they were in the operator's head.</p></div>
       <div class="tl-step"><div class="tl-phase">Phase 2</div><h4>Data Model Design</h4><p>Built the database schema from nothing. The DOS data structure made no sense on paper — had to figure out what the tables and relationships actually were from how the app behaved.</p></div>
       <div class="tl-step"><div class="tl-phase">Phase 3</div><h4>Core Module Development</h4><p>Route management first since everything depends on it, then subscribers, billing, multi-location. Checked each piece with the owner before moving on.</p></div>
       <div class="tl-step"><div class="tl-phase">Phase 4</div><h4>Data Migration & Cutover</h4><p>Migrated all operational data from the DOS system. Ran parallel operations to validate, then retired the DOS machine. Zero data loss.</p></div>
       <div class="tl-step"><div class="tl-phase">Ongoing</div><h4>Support & Maintenance</h4><p>System is in daily use. Bug fixes, feature requests, adjustments as the business evolves.</p></div>
     </div>
-  </div>
+  </section>
 
-  <div class="pd-section" id="np-challenges">
-    <div class="pd-label">Technical Challenges</div>
+  <section class="pd-section" id="np-challenges">
+    <h2 class="pd-label">Technical Challenges</h2>
     <div class="challenge-grid">
       <div class="challenge-card"><div class="num">01</div><h4>No Documentation Anywhere</h4><p>No docs, no comments, original developer unreachable. Every rule discovered through observation — including rules the owner followed unconsciously.</p></div>
       <div class="challenge-card"><div class="num">02</div><h4>Opaque Data Format</h4><p>DOS stored data in proprietary binary format. Reverse-engineered file structure, wrote custom parsers, validated every migrated record.</p></div>
-      <div class="challenge-card"><div class="num">03</div><h4>Single Power User</h4><p>One person uses the system. UI had to match their mental model precisely, not generic UX patterns. If it felt wrong to them, it was wrong.</p></div>
+      <div class="challenge-card"><div class="num">03</div><h4>Sole Operator</h4><p>One person uses the system. UI had to match their mental model precisely, not generic UX patterns. If it felt wrong to them, it was wrong.</p></div>
       <div class="challenge-card"><div class="num">04</div><h4>Business Continuity Risk</h4><p>Single point of failure for a 30-year business. Migration had to be bulletproof — no fallback if data was lost or corrupted.</p></div>
     </div>
-  </div>
+  </section>
 
-  <div class="pd-section" id="np-screens">
-    <div class="pd-label">Screenshots</div>
-    <div class="gallery">
-      <div class="gal-item"><div class="gal-ph">Route overview<br>add screenshot</div></div>
-      <div class="gal-item"><div class="gal-ph">Subscriber list<br>add screenshot</div></div>
-      <div class="gal-item"><div class="gal-ph">Billing view<br>add screenshot</div></div>
-      <div class="gal-item"><div class="gal-ph">Location detail<br>add screenshot</div></div>
-      <div class="gal-item"><div class="gal-ph">Daily report<br>add screenshot</div></div>
-      <div class="gal-item"><div class="gal-ph">Dashboard<br>add screenshot</div></div>
-    </div>
-    <p style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:8px;">→ Replace gal-ph divs with &lt;img&gt; tags to add screenshots</p>
-  </div>
-
-  <div class="pd-section" id="np-stack">
-    <div class="pd-label">Technology Stack</div>
+  <section class="pd-section" id="np-stack">
+    <h2 class="pd-label">Technology Stack</h2>
     <div class="stack-table">
-      <span class="sk-label">Runtime</span><span class="sk-val">.NET / ASP.NET</span>
+      <span class="sk-label">Runtime</span><span class="sk-val">.NET 9 / ASP.NET Core MVC</span>
       <span class="sk-label">Language</span><span class="sk-val">C#</span>
-      <span class="sk-label">ORM</span><span class="sk-val">Entity Framework (Code First)</span>
-      <span class="sk-label">Database</span><span class="sk-val">SQL Server</span>
+      <span class="sk-label">Frontend</span><span class="sk-val">Razor Views</span>
+      <span class="sk-label">ORM</span><span class="sk-val">Entity Framework Core 9</span>
+      <span class="sk-label">Database</span><span class="sk-val">PostgreSQL</span>
+      <span class="sk-label">Jobs</span><span class="sk-val">Hangfire</span>
+      <span class="sk-label">Logging</span><span class="sk-val">Serilog</span>
+      <span class="sk-label">Infra</span><span class="sk-val">Raspberry Pi + Tailscale (print server)</span>
       <span class="sk-label">Replaced</span><span class="sk-val">DOS application (1998, proprietary)</span>
     </div>
-  </div>
+  </section>
 
   <a class="next-project" href="deepwrk.html"><div><div class="next-label">Next Project</div><h3>Deepwrk — SaaS Platform Rewrite →</h3></div><span class="arrow">→</span></a>
   <div class="detail-footer">© 2026 Anton Gervaziev</div>
 
-</div>
+</main>
 
-<script>
-// Scroll-tracking for inline project nav
-window.addEventListener('scroll',()=>{
-  const sections=document.querySelectorAll('.proj-hero[id], .pd-section[id]');
-  let current='';
-  sections.forEach(s=>{
-    const rect=s.getBoundingClientRect();
-    if(rect.top<=150) current=s.getAttribute('id');
-  });
-  document.querySelectorAll('.proj-nav a[href^="#"]').forEach(a=>{
-    a.classList.remove('active');
-    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
-  });
-});
-</script>
+<div class="sr-only" aria-live="polite" id="theme-announce"></div>
+<script src="shared.js"></script>
 </body>
 </html>
