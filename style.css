@@ -195,8 +195,14 @@ footer{padding:56px 48px;border-top:1px solid var(--border);display:flex;align-i
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;}
 .gal-item{background:var(--bg3);border:1px solid var(--border);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .2s;}
 .gal-item:hover{border-color:var(--accent);}
+.gal-item{cursor:pointer;}
 .gal-item img{width:100%;height:100%;object-fit:cover;}
 .gal-ph{text-align:center;font-family:var(--mono);font-size:9px;color:var(--muted);opacity:.4;}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center;padding:24px;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
 
 /* Live preview */
 .preview-box{background:var(--bg3);border:1px solid var(--border);overflow:hidden;margin-top:14px;}

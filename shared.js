@@ -124,9 +124,36 @@
     })();
   }
 
+  function initLightbox() {
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    box.setAttribute('aria-label', 'Close image');
+    var img = document.createElement('img');
+    img.alt = '';
+    box.appendChild(img);
+    document.body.appendChild(box);
+
+    document.querySelectorAll('.gal-item img').forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        img.src = thumb.src;
+        img.alt = thumb.alt;
+        box.classList.add('open');
+      });
+    });
+
+    box.addEventListener('click', function () {
+      box.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') box.classList.remove('open');
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initScrollSpy();
     initMobileMenu();
     initThemeToggle();
+    initLightbox();
   });
 })();
